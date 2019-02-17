@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tap Placement</title>
+  </head>
+  <body>
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Tap Placement
+          </h1>
+          <h2 class="subtitle">
+            Optimal tap positioning.
+          </h2>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-narrow">
+            <div
+              class="box is-paddingless"
+              style="width: 300px; height: 300px;"
+            >
+              <agm-map
+                [latitude]="lat"
+                [longitude]="lng"
+                [mapTypeId]="'hybrid'"
+                [zoom]="zoom"
+                [maxZoom]="zoom"
+                [streetViewControl]="false"
+                (centerChange)="centerChange($event)"
+              >
+              </agm-map>
+            </div>
+          </div>
+          <div class="column is-narrow" *ngIf="!!imageData">
+            <img [src]="imageData" style="width: 300px; height: 300px;" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column">
+              <input class="input" type="number" [(ngModel)]="taps" placeholder="Taps">
+          </div>
+          <div class="column">
+
+            <input class="input" type="number" [(ngModel)]="size" placeholder="Size of area">
+          </div>
+          <div class="column">
+
+            <a
+            style="width: 100%"
+            class="button is-link"
+            [class.is-loading]="requesting"
+            (click)="request()"
+            >Place Taps</a
+          >
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script src="http://maps.googleapis.com/maps/api/js"></script>
+  <script src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
+</html>
