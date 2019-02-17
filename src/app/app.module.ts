@@ -20,7 +20,7 @@ import { AgmCoreModule } from '@agm/core';
     FontAwesomeModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAEp94k88bRxDdnQyt1BC1Na5k3p6UcCLQ'
+      apiKey: ''
     })
   ],
   providers: [],
