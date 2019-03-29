@@ -48,21 +48,37 @@
       <div class="container">
         <div class="columns is-centered">
           <div class="column">
-              <input class="input" type="number" [(ngModel)]="taps" placeholder="Taps">
+            <input
+              class="input"
+              type="text"
+              [(ngModel)]="api"
+              placeholder="API Endpoint"
+            />
           </div>
           <div class="column">
-
-            <input class="input" type="number" [(ngModel)]="size" placeholder="Size of area">
+            <input
+              class="input"
+              type="number"
+              [(ngModel)]="taps"
+              placeholder="Taps"
+            />
           </div>
           <div class="column">
-
+            <input
+              class="input"
+              type="number"
+              [(ngModel)]="size"
+              placeholder="Size of area"
+            />
+          </div>
+          <div class="column">
             <a
-            style="width: 100%"
-            class="button is-link"
-            [class.is-loading]="requesting"
-            (click)="request()"
-            >Place Taps</a
-          >
+              style="width: 100%"
+              class="button is-link"
+              [class.is-loading]="requesting"
+              (click)="request()"
+              >Place Taps</a
+            >
           </div>
         </div>
       </div>
