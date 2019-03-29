@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
-
+import secrets from "../assets/config/secrets.json";
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { AgmCoreModule } from '@agm/core';
     FontAwesomeModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAEp94k88bRxDdnQyt1BC1Na5k3p6UcCLQ'
+      apiKey: secrets.GOOGLE_MAPS_API_KEY
     })
   ],
   providers: [],

@@ -35,8 +35,9 @@ export class AppComponent {
 
   async request() {
     this.requesting = true;
-
-    this.http.get(`http://ts.jones-matthew.uk:25565/giveLocation?long=${this.sendLng}&lat=${this.sendLat}&taps=${this.taps}&size=${this.size}`).toPromise().then(data => {
+    // let BASE_API = "http://ts.jones-matthew.uk";
+    let BASE_API = "http://0.0.0.0";
+    this.http.get(`${BASE_API}:25565/giveLocation?long=${this.sendLng}&lat=${this.sendLat}&taps=${this.taps}&size=${this.size}`).toPromise().then(data => {
       console.log(data);
       let image = data['image'];
       console.log(image)
