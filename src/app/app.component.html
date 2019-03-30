@@ -6,7 +6,7 @@
     <title>Water Tap Placement</title>
   </head>
   <body>
-    <section class="hero is-primary">
+    <section class="hero is-light">
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
@@ -37,9 +37,30 @@
               >
               </agm-map>
             </div>
+            <div
+              class="box"
+              style="width: 300px; height: 274px;"
+              *ngIf="!!imageData"
+            >
+              <h1 class="title">Results</h1>
+              <content>
+                <span class="tag is-danger is-medium"
+                  >{{ this.resultHouses }} houses detected</span
+                >
+                <span class="tag is-info is-medium" style="margin-top:0.3em"
+                  >{{ this.resultTaps }} taps placed</span
+                >
+                <p style="margin-top:1em">
+                  <strong>{{ this.resultPercentage }}%</strong> of this land
+                  area is occupied by houses.
+                </p>
+              </content>
+            </div>
           </div>
           <div class="column is-narrow" *ngIf="!!imageData">
-            <img [src]="imageData" style="width: 300px; height: 300px;" />
+            <div class="box" style="width: 600px; height: 600px; padding: 0">
+              <img [src]="imageData" style="width: 600px; height: 600px;" />
+            </div>
           </div>
         </div>
       </div>
@@ -48,32 +69,49 @@
       <div class="container">
         <div class="columns is-centered">
           <div class="column">
-            <input
-              class="input"
-              type="text"
-              [(ngModel)]="api"
-              placeholder="API Endpoint"
-            />
+            <div class="field">
+              <label class="label">Taps</label>
+              <div class="control">
+                <input
+                  class="input"
+                  type="number"
+                  [(ngModel)]="taps"
+                  placeholder="Taps"
+                />
+              </div>
+            </div>
           </div>
           <div class="column">
-            <input
-              class="input"
-              type="number"
-              [(ngModel)]="taps"
-              placeholder="Taps"
-            />
+            <div class="field">
+              <label class="label">Resolution</label>
+              <div class="control">
+                <input
+                  class="input"
+                  type="number"
+                  [(ngModel)]="size"
+                  placeholder="Size of area"
+                />
+              </div>
+            </div>
           </div>
+        </div>
+        <div class="columns is-centered">
           <div class="column">
-            <input
-              class="input"
-              type="number"
-              [(ngModel)]="size"
-              placeholder="Size of area"
-            />
+            <div class="field">
+              <label class="label">API</label>
+              <div class="control">
+                <input
+                  class="input"
+                  type="text"
+                  [(ngModel)]="api"
+                  placeholder="API Endpoint"
+                />
+              </div>
+            </div>
           </div>
-          <div class="column">
+          <div class="column" style="padding-bottom: 0">
             <a
-              style="width: 100%"
+              style="width: 100%; margin-top: 2em; margin-bottom: 0"
               class="button is-link"
               [class.is-loading]="requesting"
               (click)="request()"

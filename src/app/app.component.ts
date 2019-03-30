@@ -19,6 +19,10 @@ export class AppComponent {
   sendLat: number = this.lat;
   sendLng: number = this.lng;
 
+  resultPercentage = 50;
+  resultHouses = 100;
+  resultTaps = 3;
+
   size: number = 200;
   taps: number = 3;
   api: string = "http://0.0.0.0";
@@ -40,6 +44,9 @@ export class AppComponent {
     // let BASE_API = "http://0.0.0.0";
     this.http.get(`${this.api}:25565/giveLocation?long=${this.sendLng}&lat=${this.sendLat}&taps=${this.taps}&size=${this.size}`).toPromise().then(data => {
       console.log(data);
+      this.resultPercentage = data['percentage'];
+      this.resultHouses = data['houses'];
+      this.resultTaps = data['taps']
       let image = data['image'];
       console.log(image)
 
