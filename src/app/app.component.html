@@ -42,7 +42,7 @@
               style="width: 300px; height: 274px;"
               *ngIf="!!imageData"
             >
-              <h1 class="title">Results</h1>
+              <h4 class="title is-4">Results</h4>
               <content>
                 <span class="tag is-danger is-medium"
                   >{{ this.resultHouses }} houses detected</span
@@ -51,8 +51,14 @@
                   >{{ this.resultTaps }} taps placed</span
                 >
                 <p style="margin-top:1em">
-                  <strong>{{ this.resultPercentage }}%</strong> of this land
-                  area is occupied by houses.
+                  {{ this.resultArea }} m&#178; (<strong
+                    >{{ this.resultPercentage }}%</strong
+                  >) of this land area is occupied by houses.
+                </p>
+                <p>
+                  An estimated {{ this.resultPopulation }} people live in this
+                  area. We recommend
+                  <strong>{{ this.resultRecommendation }} taps.</strong>
                 </p>
               </content>
             </div>

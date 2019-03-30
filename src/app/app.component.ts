@@ -22,6 +22,9 @@ export class AppComponent {
   resultPercentage = 50;
   resultHouses = 100;
   resultTaps = 3;
+  resultArea = 0;
+  resultPopulation = 0;
+  resultRecommendation = 0;
 
   size: number = 200;
   taps: number = 3;
@@ -46,7 +49,10 @@ export class AppComponent {
       console.log(data);
       this.resultPercentage = data['percentage'];
       this.resultHouses = data['houses'];
-      this.resultTaps = data['taps']
+      this.resultTaps = data['taps'];
+      this.resultArea = data['area'];
+      this.resultPopulation = data['population'];
+      this.resultRecommendation = data['recommendation'];
       let image = data['image'];
       console.log(image)
 
