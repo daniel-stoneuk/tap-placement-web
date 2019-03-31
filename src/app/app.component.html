@@ -64,8 +64,20 @@
             </div>
           </div>
           <div class="column is-narrow" *ngIf="!!imageData">
-            <div class="box" style="width: 600px; height: 600px; padding: 0">
+            <div class="box" style="width: 600px; height: 600px; padding: 0; margin-bottom: 0.5em">
               <img [src]="imageData" style="width: 600px; height: 600px;" />
+            </div>
+            <div class="columns">
+              <div class="column">
+                <span class="tag">
+                    &copy; 2019 Microsoft Corporation &copy; 2019 DigitalGlobe
+                </span>
+              </div>
+              <div class="column is-narrow">
+                <img
+                  src="http://dev.virtualearth.net//Branding//logo_powered_by.png"
+                />
+              </div>
             </div>
           </div>
         </div>
