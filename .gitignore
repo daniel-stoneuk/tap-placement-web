@@ -43,4 +43,8 @@ testem.log
 Thumbs.db
 
 # API KEY
-src/assets/config/secrets.json
+src/environments/environment.ts
+src/environments/environment.prod.ts
+
+# dist
+dist/*
