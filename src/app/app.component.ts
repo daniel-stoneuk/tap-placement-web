@@ -34,13 +34,25 @@ export class AppComponent {
 
   requesting: boolean = false;
   
+
   imageData: any;
+  originalImageData: any;
+
+  imageSrc: any;
 
   constructor(private http: HttpClient, private sanitizer: DomSanitizer) { }
 
   centerChange($event) {
     this.sendLat = $event.lat;
     this.sendLng = $event.lng;
+  }
+
+  mouseDown(): void {
+    this.imageSrc = this.originalImageData;
+  }
+
+  mouseUp(): void {
+    this.imageSrc = this.imageData;
   }
 
   async request() {
@@ -56,10 +68,15 @@ export class AppComponent {
       this.resultPopulation = data['population'];
       this.resultRecommendation = data['recommendation'];
       let image = data['image'];
+      let originalImage = data['original'];
       console.log(image)
 
       this.imageData = 'data:image/png;base64,'+ image;
+      this.originalImageData = 'data:image/png;base64,'+ originalImage;
 
+      this.imageSrc = this.imageData;
+
+  
       this.requesting = false;
     }).catch((err) => {
       console.log(err);
