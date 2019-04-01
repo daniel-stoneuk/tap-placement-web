@@ -28,7 +28,9 @@ export class AppComponent {
 
   size: number = 200;
   taps: number = 3;
+  downscale: number = 10;
   api: string = "http://0.0.0.0";
+  zoomlevel: number = 19;
 
   requesting: boolean = false;
   
@@ -45,7 +47,7 @@ export class AppComponent {
     this.requesting = true;
     // let BASE_API = "http://ts.jones-matthew.uk";
     // let BASE_API = "http://0.0.0.0";
-    this.http.get(`${this.api}:25565/giveLocation?long=${this.sendLng}&lat=${this.sendLat}&taps=${this.taps}&size=${this.size}`).toPromise().then(data => {
+    this.http.get(`${this.api}:25565/giveLocation?long=${this.sendLng}&lat=${this.sendLat}&taps=${this.taps}&size=${this.size}&downscale=${this.downscale}&zoom=${this.zoomlevel}`).toPromise().then(data => {
       console.log(data);
       this.resultPercentage = data['percentage'];
       this.resultHouses = data['houses'];
